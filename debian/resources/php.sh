@@ -35,6 +35,7 @@ elif [ ."$cpu_architecture" = ."arm" ]; then
 	      php_version=8.2
 	fi
 else
+	#12.x - bookworm
 	#11.x - bullseye
 	#10.x - buster
 	#9.x  - stretch
@@ -181,7 +182,9 @@ fi
 if [ ."$php_version" = ."8.1" ]; then
         systemctl restart php8.1-fpm
 fi
-
+if [ ."$php_version" = ."8.2" ]; then
+        systemctl restart php8.2-fpm
+fi
 #init.d
 #/usr/sbin/service php5-fpm restart
 #/usr/sbin/service php7.0-fpm restart
